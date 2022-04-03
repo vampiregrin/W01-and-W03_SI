@@ -1,0 +1,21 @@
+
+// A= length; A = x+x+y thus  y= A - 2b
+// P = x * y thus P = x * (A - 2x) -> xa - 2x^2x
+// for the max value of in quadric equation = the max value of the 
+// vertex of parabola: x = -b/2a 
+// thus: x= A/4, y= A/2
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int length;
+    int a;
+    int b;
+    cout<<"The length of the fence is: ";
+    cin>>length;
+    cout<<"The optimal length of the segment a is: " + to_string(length/4) 
+        +"The optimal lenght of the segment b is: " + to_string(length/2);
+
+    return 0;
+}
