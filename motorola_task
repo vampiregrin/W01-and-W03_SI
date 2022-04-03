@@ -5,17 +5,24 @@
 // vertex of parabola: x = -b/2a 
 // thus: x= A/4, y= A/2
 
+
 #include <iostream>
 using namespace std;
+
 int main()
 {
-    int length;
-    int a;
-    int b;
+    int A;
+    int x;
+    int y;
     cout<<"The length of the fence is: ";
-    cin>>length;
-    cout<<"The optimal length of the segment a is: " + to_string(length/4) 
-        +"The optimal lenght of the segment b is: " + to_string(length/2);
+    cin>>A;
+    if( A <=0 ) {
+        cerr << "Wrong input data" << endl ;
+        return 1;
+    }
+    
+    cout<<"The optimal length of the segment a is: " << to_string(A/4) << endl 
+        << "The optimal lenght of the segment b is: " << to_string(A/2);
 
     return 0;
 }
