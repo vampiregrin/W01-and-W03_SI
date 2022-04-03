@@ -1,0 +1,16 @@
+# tasks
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int length;
+
+    cout<<"The length of the fance is: ";
+    cin>>length;
+    cout<<"The optimal length of the segment a is: " + to_string(std::floor(length/3.));
+
+    return 0;
+}
