@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+int main() 
+{
+	char * rovername = "Motorover";
+	char* status = "Exploring";
+	int battery = 80;
+	int x;
+	float temp = 13.34, vel = 20;
+	float kelvs;
+	kelvs = temp + 273.15;
+	char input[50], answer[50];
+
+	printf("What would you like to know? Write down the corresponding letter\n");
+	printf("A.Current parameters\nB.Number of bytes reserved for variables\nC.Min and max values of parameters\n");
+	scanf_s("%s", answer, 50);
+	if (strcmp(answer, "A") == 0) {
+		printf("Which parameter to check?:\n");
+		printf("-Name\n-Battery charge status\n-Temperature\n-Velocity\n-Status\n");
+		scanf_s("%s", input, 50);
+		if (strcmp(input, "Name") == 0) {
+			printf("My name is: %s.\n", rovername);
+		}
+		else if (strcmp(input, "Battery charge status") == 0) {
+			printf("Battery charge is: %d %%.\n", battery);
+		}
+		else if (strcmp(input, "Temperature") == 0) {
+			printf("Temperature is: %.2f *C \n", temp);
+			printf("In Kelvins: %.2f K\n", kelvs);
+		}
+		else if (strcmp(input, "Velocity") == 0) {
+			printf("Velocity is: %.2f km/h \n", vel);
+			printf("In scientific notation: %.10e\n", vel);
+			printf("In decimal notation: %lf\n", vel);
+		}
+		else if (strcmp(input, "Status") == 0) {
+			printf("Current status is: %s. \n", status);
+		}
+		else {
+			printf("Wrong input");
+		}
+	}
+	else if (strcmp(answer, "B") == 0) {
+		printf("For which parameter?:\n");
+		printf("1-Name\n2-Battery charge status\n3-Temperature\n4-Velocity\n5-Status\n");
+		scanf_s("%d", &x);
+		if (x == 1 || x == 5) {
+			printf("sizeof(char) is %d bytes.\n", sizeof(char));
+		}
+		else if (x == 2 || x == 4) {
+			printf("sizeof(int) is %d bytes.\n", sizeof(int));
+		}
+		else if (x == 3) {
+			printf("sizeof(float) is %d bytes.\n", sizeof(float));
+		}
+		else {
+			printf("Wrong input");
+		}
+	} else if (strcmp(answer, "C") == 0) {
+		printf("-Battery charge status: min 0%% max 100%%\n-Temperature: min - 150 * C max 150 * C\n-Velocity: min 0 km / h max 100 k /m\n");
+	} else {printf("Wrong input");
+	}
+	return 0;
+}
