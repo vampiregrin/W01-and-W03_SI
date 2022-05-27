@@ -1,3 +1,17 @@
+//Level 0
+//Create variables for storing information about robot’s name, battery charge status (integer in %), temperature and velocity, and status (Exploring/Sampling/Returning/Idle).
+//Create a command for the robot to display and update the value of selected variable.
+//Change the temperature value and repeat.
+//Level 1
+//Create commands that allow:
+//➢ Displaying number of bytes reserved for each variable type
+//➢ Displaying maximum and minimum values possible to store in battery status, temperature and velocity
+//➢ Converting the temperature value to its absolute value
+//➢ Displaying the velocity in decimal notation and then in scientific notation.
+//Level 2
+//Create a command that allows converting temperature from *C to Kelvins.
+
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
