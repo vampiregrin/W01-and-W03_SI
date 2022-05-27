@@ -1,0 +1,77 @@
+//Level 0
+//The user should be able to input the dimension of a figure: circle (radius), rectangle, triangle or trapeze. The program should then calculate the perimeter of a given figure.
+//Level 1
+//The program should allow for calculation of the figure’s field. Consider determining the height of a figure.
+//Level 2
+//The user can input the point coordinates in the Cartesian coordinate system and receive figure’s perimeter and field (e.g. for a square: (0,0), (0,2), (2,2), (0,2), side = 2)
+
+
+#include <stdio.h>
+int main()
+{
+	const float pi = 3.1415;
+	int x; 
+	float radius, per, a, b, c, d, field, h;
+
+	printf("What would you like to know? Write down the corresponding number\n");
+	printf("1-Circle, 2-Rectangle, 3- Triangle, 4- Trapeze\n");
+	scanf_s("%d", &x);
+	if (x == 1) {
+		printf("Write down the length of the radius:\n");
+		scanf_s("%f", &radius);
+		if (radius > 0) {
+			per = 2 * pi * radius;
+			field = pi * radius * radius;
+			printf("The perimeter of a circle is: %.2f\n", per);
+			printf("The field of a circle is: %.2f\n", field);
+		}
+	
+		else {
+			printf("Wrong input");
+		}
+	}
+	else if (x == 2) {
+		printf("Write down lengths of two sides:\n");
+		scanf_s("%f %f", &a, &b);
+		if (a > 0 && b > 0) {
+			per = a + a + b + b;
+			field = a * b;
+			printf("The perimeter of a rectangle is: %.2f\n", per);
+			printf("The field of a rectangle is: %.2f\n", field);
+		}
+		else {
+			printf("Wrong input");
+		}
+	}
+	else if (x == 3) {
+		printf("Write down lengths of three sides. Remember about the Triangle inequality rule!:\n");
+		scanf_s("%f %f %f", &a, &b, &c);
+		printf("Write down the height of the triangle:\n");
+		scanf_s("%f", &h);
+		if (a + b > c && a + c > b && b + c > a && a>0 && b>0 && c>0 && h>0){
+			per = a + b + c;
+			field = a * h / 2;
+			printf("The perimeter of a triangle is: %.2f\n", per);
+			printf("The field of a triangle is: %.2f\n", field);
+		}
+		else {
+			printf("Wrong input");
+		}
+	}
+	else if (x == 4) {
+		printf("Write down lengths of four sides:\n");
+		scanf_s("%f %f %f %f", &a, &b, &c, &d);
+		printf("Write down the height of the trapeze:\n");
+		scanf_s("%f", &h);
+		if (a >0 && b>0 && c>0 && d>0 && h>0) {
+			per = a + b + c + d;
+			field = (a + b) * h / 2;
+			printf("The perimeter of a trapeze is: %.2f\n", per);
+			printf("The field of a trapeze is: %.2f\n", field);
+		}
+		else {
+			printf("Wrong input");
+		}
+	}
+	return 0;
+}
