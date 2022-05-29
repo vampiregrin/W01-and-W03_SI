@@ -17,7 +17,6 @@ int main()
     scanf_s("%d", &shape);
     if (shape == 1) {
 
-        //x=i, y=j
         printf("Enter the size of square's sides:\n");
         scanf_s("%d %d", &row, &col);
         for (x = 1; x <= row; x++) {     // Outer loop to print all the rows
