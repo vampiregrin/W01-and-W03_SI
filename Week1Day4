@@ -1,0 +1,58 @@
+//Level 0
+Create a menu allowing creation of 3 patterns: 
+//(1) rectangle built of a given number of ‘X’es, (2) triangle built of a given number of ‘X’es, (3) pattern of alternatery changing pairs of ‘X’es and ‘o’es.
+//Level 1
+//Add a pattern with frame and ‘X’ inside the square, fill other fields with ‘o’. Add another pattern with ‘X’ placed on both diagonals.
+//Level 2
+//Add a diamond pattern and a chess pattern. Create ‘frame-inside-frame’ pattern.
+
+
+
+#include <stdio.h>
+int main()
+{
+    int input, row, col, shape, x, y;
+    
+    printf("Which figure would you like to print?\n1) square\n2) triangle\n3) rectangle with XO\n");
+    scanf_s("%d", &shape);
+    if (shape == 1) {
+
+        //x=i, y=j
+        printf("Enter the size of square's sides:\n");
+        scanf_s("%d %d", &row, &col);
+        for (x = 1; x <= row; x++) {     // Outer loop to print all the rows
+            for (y = 1; y <= col; y++) {  // Inner loop to print all the columns of each row
+                printf("X ");
+         }
+            printf("\n");   // A row ended, bring the cursor to the next line
+     }
+    }
+    else if (shape == 2) {
+
+        printf("Enter the size of triangle's side:\n");
+        scanf_s("%d", &row);
+        for (x = 1; x <= row; x++) {     // Outer loop to print all the rows
+            for (y = 1; y <= x; y++) {  // Inner loop to print all the columns of each row
+                printf("X ");
+            }
+            printf("\n");   // A row ended, bring the cursor to the next line
+        }
+    }
+    else if (shape == 3) {
+        printf("Enter the size of rectangle's side:\n");
+        scanf_s("%d %d", &col, &row);
+        for (x = 1; x <= row; x++) {
+            for (y = 1; y <= col; y++) {
+                if (!(x % 2 == 0))
+                    printf("XO");
+                else
+                    printf("OX");
+                }
+            printf("\n");
+
+            }
+        }
+    
+	return 0;
+}
+
