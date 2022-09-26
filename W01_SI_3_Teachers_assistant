@@ -1,0 +1,249 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void showarray(double e[]) {
+	for (int i = 0; i < 7; i++) {
+		printf("%lf\n", e[i]);
+	}
+
+}
+void random(double c[]) {
+	
+
+	for (int i = 0; i < 7; i++) {
+		double random = rand() % 10000 + 1;
+		c[i] = random / 100;
+	}
+
+
+
+}
+void bubble_sort(double a[]);
+int Scholarship(double d[]) {
+	int b = 0;
+	bubble_sort(d);
+	double s = (d[6] + d[5] + d[4]) / 3;
+	if (s > 95)
+		b = 1;
+	return b;
+}
+void bubble_sort(double a[]) {
+	int i = 0, j = 0, tmp;
+	for (i = 0; i < 7; i++) {   // loop n times - 1 per element
+		for (j = 0; j < 7 - i - 1; j++) { // last i elements are sorted already
+			if (a[j] > a[j + 1]) {  // swap if order is broken
+				tmp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = tmp;
+			}
+		}
+	}
+}
+void BUBBLE_SORT(double a[]) {
+	int i = 0, j = 0, tmp;
+	for (i = 0; i < 5; i++) {   // loop n times - 1 per element
+		for (j = 0; j < 5 - i - 1; j++) { // last i elements are sorted already
+			if (a[j] > a[j + 1]) {  // swap if order is broken
+				tmp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = tmp;
+			}
+		}
+	}
+}
+double Average(double scores[]) {
+	double sum = 0;
+	for (int i = 0; i < 7; i++) {
+		sum += scores[i];
+	}
+	sum = sum / 7;
+	return sum;
+
+}
+double Averagee(double scores[]) {
+	double sum = 0;
+	for (int i = 0; i < 5; i++) {
+		sum += scores[i];
+	}
+	sum = sum / 5;
+	return sum;
+
+}
+char Mark(double average) {
+	char mark;
+	if (average < 50) {
+		mark = 'F';
+	}
+	if (average > 50 && average <= 60) {
+		mark = 'E';
+	}
+	if (average > 60 && average <= 70) {
+		mark = 'D';
+	}
+	if (average > 70 && average <= 80) {
+		mark = 'C';
+	}
+	if (average > 80 && average <= 90) {
+		mark = 'B';
+	}
+	if (average > 90 && average <= 100) {
+		mark = 'A';
+	}
+	return mark;
+
+}
+int how_many_scholarships(double x1[] ,double x2[] ,double x3[] ,double x4[], double x5[]) {
+	int howmany = Scholarship(x1)+ Scholarship(x2) + Scholarship(x3) + Scholarship(x4) + Scholarship(x5);	
+	return howmany;
+}
+void initializating(double a[], double b[], double c[], double d[], double e[], double f[], int n){
+	a[0] = b[n];
+	a[1] = c[n];
+	a[2] = d[n];
+	a[3] = e[n];
+	a[4] = f[n];
+	
+
+}
+int main() {
+
+	srand(time(NULL));
+	double Harper[7];
+	random(Harper);
+	double Celement[7];
+	random(Celement);
+	double Belinsa[7];
+	random(Belinsa);
+	double Cedric[7];
+	random(Cedric);
+	double Fiona[7];
+	random(Fiona);
+	double one[5];
+	double two[5];
+	double three[5];
+	double four[5];
+	double five[5];
+	double six[5];
+	double seven[5];
+	initializating(one, Harper, Celement, Belinsa, Cedric, Fiona, 0);
+	initializating(two, Harper, Celement, Belinsa, Cedric, Fiona, 1);
+	initializating(three, Harper, Celement, Belinsa, Cedric, Fiona, 2);
+	initializating(four, Harper, Celement, Belinsa, Cedric, Fiona, 3);
+	initializating(five, Harper, Celement, Belinsa, Cedric, Fiona, 4);
+	initializating(six, Harper, Celement, Belinsa, Cedric, Fiona, 5);
+	initializating(seven, Harper, Celement, Belinsa, Cedric, Fiona, 6);
+	while (1) {
+		printf("Hello! Choose which student's notes you want to display or choose the 'stats' option:\n");
+		printf("1: Harper Eland\n");
+		printf("2: Celement Hayes\n");
+		printf("3: Belinsa Jacobs\n");
+		printf("4: Cedric Santos\n");
+		printf("5: Fiona Wilcher\n");
+		printf("6: Stats\n");
+		int choice;
+		scanf_s("%d", &choice);
+
+		switch (choice) {
+		case 1:
+			showarray(Harper);
+			int Harper_scholarship = Scholarship(Harper);
+			if (Harper_scholarship == 0)
+				printf("No scholarship assigned :(\n");
+			else
+				printf("Qualified for a scholarship :)");
+
+			break;
+		case 2:
+			showarray(Celement);
+			int Celement_scholarship = Scholarship(Celement);
+			if (Celement_scholarship == 0)
+				printf("No scholarship assigned :(\n");
+			else
+				printf("Qualified for a scholarship :)");
+
+			break;
+		case 3:
+			showarray(Belinsa);
+			int Belinsa_scholarship = Scholarship(Belinsa);
+			if (Belinsa_scholarship == 0)
+				printf("No scholarship assigned :(\n");
+			else
+				printf("Qualified for a scholarship :)");
+
+			break;
+		case 4:
+			showarray(Cedric);
+			int Cedric_scholarship = Scholarship(Cedric);
+			if (Cedric_scholarship == 0)
+				printf("No scholarship assigned :(\n");
+			else
+				printf("Qualified for a scholarship :)");
+
+			break;
+		case 5:
+			showarray(Fiona);
+			int Fiona_scholarship = Scholarship(Fiona);
+			if (Fiona_scholarship == 0)
+				printf("No scholarship assigned :(\n");
+			else
+				printf("Qualified for a scholarship :)");
+
+			break;
+		case 6:
+			int y = how_many_scholarships(Harper, Celement, Belinsa, Cedric, Fiona);
+			printf("%d students have a scholarship\n\n\n", y);
+			
+			BUBBLE_SORT(one);
+			BUBBLE_SORT(two);
+			BUBBLE_SORT(three);
+			BUBBLE_SORT(four);
+			BUBBLE_SORT(five);
+			BUBBLE_SORT(six);
+			BUBBLE_SORT(seven);
+			double average1 = Averagee(one);
+			double average2 = Averagee(two);
+			double average3 = Averagee(three);
+			double average4 = Averagee(four);
+			double average5 = Averagee(five);
+			double average6 = Averagee(six);
+			double average7 = Averagee(seven);
+			printf("The average of the first subject: %lf\n", average1);
+			printf("The lowest note of the first subject is: %lf\n", one[0]);
+			printf("The highest note of the first subject is: %lf\n", one[4]);
+			printf("\n\n");
+			printf("The average of the second subject: %lf\n", average2);
+			printf("The lowest note of the second subject is: %lf\n", two[0]);
+			printf("The highest note of the second subject is: %lf\n", two[4]);
+			printf("\n\n");
+			printf("The average of the third subject: %lf\n", average3);
+			printf("The lowest note of the third subject is: %lf\n", three[0]);
+			printf("The highest note of the third subject is: %lf\n", three[4]);
+			printf("\n\n");
+			printf("The average of the fourth subject: %lf\n", average4);
+			printf("The lowest note of the fourth subject is: %lf\n", four[0]);
+			printf("The highest note of the fourth subject is: %lf\n", four[4]);
+			printf("\n\n");
+			printf("The average of the fifth subject: %lf\n", average5);
+			printf("The lowest note of the fifth subject is: %lf\n", five[0]);
+			printf("The highest note of the fifth subject is: %lf\n", five[4]);
+			printf("\n\n");
+			printf("The average of the sixth subject: %lf\n", average6);
+			printf("The lowest note of the sixth subject is: %lf\n", six[0]);
+			printf("The highest note of the sixth subject is: %lf\n", six[4]);
+			printf("\n\n");
+			printf("The average of the seventh subject: %lf\n", average7);
+			printf("The lowest note of the seventh subject is: %lf\n", seven[0]);
+			printf("The highest note of the seventh subject is: %lf\n", seven[4]);
+
+			break;
+
+
+		defualt:
+			printf("No such an option!");
+			exit(1);
+		}
+	}
+
+	return 0;
+}
