@@ -1,0 +1,279 @@
+#include<stdio.h>
+#include <stdlib.h>
+int  isNumber(char number[])
+{
+    int i = 0;
+
+    //checking for negative numbers
+    if (number[0] == '-'){
+        printf("Invalid input!");
+         exit(1);
+    }
+
+    for (; number[i] != 0; i++)
+    {
+        if (number[i] > '9' || number[i] < '0'){
+        
+            printf("Invalid input!");
+            exit(1);
+        }
+    }
+    int x = atoi(number);
+    return x;
+}
+int main() {
+    printf("Hello! Choose the pattern you want to appear on the screen:\n");
+    printf("1: rectangle\n");
+    printf("2: traingle\n");
+    printf("3: pattern of alternatery changing pairs of ‘X’es and ‘o’es\n");
+    printf("4: rectangle with 'X'es as a frame and 'o'es inside\n");
+    printf("5: pattern with 'X'es as a frame and on both diagonals\n");
+    printf("6: diamond pattern\n");
+	printf("7: chess pattern\n");
+    printf("8: 'frame indise frame'\n ");
+    
+    int choice; 
+    scanf("%d", &choice);
+    
+    
+    
+    switch (choice){
+	
+	case 1:
+	printf("Specify the length:\n");
+	char b[100];
+	scanf("%s", &b);
+    int a = isNumber(b);
+    printf("Specify the width:\n");
+    char c[100];
+    scanf("%s", &c);
+    int d = isNumber(c);
+    
+    //displaying the rectangle pattern
+    
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < d; j++) {
+			printf("X");
+		}
+		printf("\n");
+	}
+	break;
+
+	case 2:
+	printf("Specify the dimension:\n");
+	char e[100];
+	scanf("%s", &e);
+    int f = isNumber(e);
+    for (int i = 0; i < f; i++) {
+		for (int j = 0; j <= i; j++) {
+			printf("X");
+		}
+		printf("\n");
+	}
+	break;
+
+	case 3:
+	printf("Specify the length (and remember, it must be an even number!\n");
+	char g[100];
+	scanf("%s", &g);
+    int h = isNumber(g);
+    if(h%2==1){     //checking if the length is an even number
+        printf("It is not an even number!\n");
+        exit(1);
+    }
+    h/=2;
+    printf("Specify the width:\n");
+    char i[100];
+    scanf("%s", &i);
+    int j = isNumber(i);
+    
+    
+	for (int i = 0; i < j; i++) {
+		if (i % 2 == 0) {
+			for (int X = 0; X < h; X++) {
+				printf("Xo");
+			}
+		}
+			if (i % 2 == 1) {
+				for (int Y = 0; Y < h; Y++) {
+					printf("oX");
+				}
+			}
+			printf("\n");
+		}
+	break;
+
+	case 4:
+	printf("Specify the length:\n");
+	char Length[100];
+	scanf("%s", &Length);
+	int length = isNumber(Length);
+	printf("Specify the width: \n");
+	char Width[100];
+	scanf("%s", &Width);
+	int width = isNumber(Width);
+	
+	
+	for (int i = 0; i < length; i++) {
+		printf("X");
+	}
+	printf("\n");
+
+	for (int a = 0; a < width - 2; a++) {
+		printf("X");
+		for (int b = 0; b < length - 2; b++) {
+			printf("o");
+		}
+		printf("X\n");
+	}
+
+
+
+
+	for (int j = 0; j < length; j++) {
+		printf("X");
+	}
+	printf("\n");
+    
+    break;
+
+    case 5:
+    printf("Specify the dimension:\n");
+    char Dimension[100];
+    scanf("%s", &Dimension);
+    int dimension = isNumber(Dimension);
+    for (int a = 1; a <= dimension; a++) {
+		printf("X");
+	}
+	printf("\n");
+	for (int b = 1; b <= dimension- 2; b++) {
+		printf("X");
+		for (int c = 1; c <= dimension - 2; c++) {
+			if (c == b || c == dimension- b - 1)
+				printf("X");
+			else
+				printf("o");
+		}
+		printf("X\n");
+	}
+	for (int d = 1; d <= dimension; d++) {
+		printf("X");
+	}
+
+    break;
+
+    case 6:
+    printf("Specify the length of the shorter diagonal:\n");
+    char Diagonal[100];
+    scanf("%s", &Diagonal);
+    int diagonal = isNumber(Diagonal);
+    int middle = (diagonal + 1) / 2;
+    for (int i = 1; i <= diagonal; i++) {
+        printf("o");
+    }
+    printf("\n");
+    for (int a = 0; a < middle; a++) {
+        for (int b = 1; b <= diagonal; b++) {
+            if (b >= middle - a && b <= middle + a)
+                printf("X");
+            else {
+                printf("o");
+            }
+
+
+        }
+        printf("\n");
+
+    }
+
+    for (int c = 1; c < middle; c++) {
+        for (int d = 1; d <= diagonal; d++) {
+            if (d <= c || d >= diagonal + 1 - c)
+                printf("o");
+            else
+                printf("X");
+
+
+        }
+        printf("\n");
+    }
+
+    for (int e = 1; e <= diagonal; e++) {
+        printf("o");
+    }
+    break; 
+    
+	case 7:
+	printf("Specify the length (watch out! it must be a number that can be divisible by 6)\n");
+	char Chess_length[100];
+	scanf("%s", &Chess_length);
+	int chess_length = isNumber(Chess_length);
+	if(chess_length%6!=0){
+	    printf("Invalid input!");
+	    exit(1);
+	}
+	printf("Specify the width of the number:\n");
+	char Chess_width[100];
+	scanf("%s", &Chess_width);
+	chess_length = chess_length / 6;
+	int chess_width = isNumber(Chess_width);
+	for (int i = 0; i < chess_width; i++) {
+		if (i % 2 == 0) {
+			for (int j = 0; i < chess_length; i++) {
+				printf("oooXXX");
+			}
+		}
+		if(i % 2 == 1) {
+			for (int h = 0; h < chess_length; h++) {
+				printf("XXXooo");
+			}
+		}
+		printf("\n");
+	}
+    break;
+
+    case 8:
+    printf("Specify the dimension (watch out! this number must be odd!):\n");
+    char Frame[100];
+    scanf("%s", &Frame);
+    int frame = isNumber(Frame);  // frame = length of the side
+    if(frame%2==0){
+        printf("Invalid input!");
+        exit(1);
+    }
+    char array[frame][frame];
+    middle = (frame - 1) / 2;
+	char current;
+	array[middle][middle] = 'X';
+	for (int i = 1; i <= middle; i++) {
+		if (i % 2 == 0)
+			current = 'X';
+		else
+			current = 'o';
+		for (int a = 0; a <= 2 * i; a++) {
+			array[middle - i + a][middle + i] = current;
+		}
+		for (int b = 0; b <= 2 * i; b++) {
+			array[middle - i + b][middle - i] = current;
+		}
+		for (int c = 0; c <= 2 * i; c++) {
+			array[middle - i][middle - i + c] = current;
+		}
+		for (int d = 0; d <= 2 * i; d++) {
+			array[middle + i][middle - i + d] = current;
+		}
+
+	}
+	for (int x = 0; x < frame; x++) {
+		for (int y = 0; y < frame; y++) {
+			printf("%c", array[x][y]);
+		}
+		printf("\n");
+	}
+    
+    break;
+    
+} 
+
+	return 0;
+}
